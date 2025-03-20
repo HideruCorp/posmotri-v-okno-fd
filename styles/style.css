@@ -7,7 +7,6 @@
 
   --results-inline-size: 711px;
   --details-inline-size: 401px;
-  --content-block-size: 534px;
 
   --text-font: "Fira Sans Condensed", sans-serif;
   --title-font: "Oswald", sans-serif;
@@ -25,7 +24,11 @@ html {
 }
 
 .page {
+  display: flex;
+  place-items: center;
+  place-content: center;
   margin: auto;
+  padding: 133px 30px;
   color: var(--text-color);
   font-family: var(--text-font);
   font-size: var(--text-size);
@@ -76,17 +79,9 @@ ol {
   white-space: nowrap;
 }
 
-.page {
-  display: flex;
-  place-items: center;
-  place-content: center;
-  padding: 133px 30px;
-}
-
 .content {
   display: grid;
   grid-template-columns: var(--results-inline-size) var(--details-inline-size);
-  grid-template-rows: minmax(auto, var(--content-block-size));
   grid-template-areas: "results details";
   justify-content: center;
   align-items: end;
@@ -94,12 +89,7 @@ ol {
 }
 
 .result {
-  display: flex;
-  flex-flow: column nowrap;
-  grid-area: results;
-  justify-content: start;
-  align-items: stretch;
-  gap: 16px;
+  display: block;
   padding-block-start: 75px;
 }
 
@@ -131,6 +121,7 @@ ol {
   grid-template-rows: 100%;
   align-items: start;
   gap: 40px;
+  margin-block-start: 16px;
 }
 
 .search-form__fieldset {
@@ -249,11 +240,11 @@ input[type="text"].search-form__textfield:active {
 
 .content__details {
   grid-area: details;
-  padding-block-start: 3px;
   block-size: 100%;
 }
 
 .title {
+  margin-inline-start: 2px;
   font-family: var(--title-font);
   font-weight: bold;
   font-size: 75px;
@@ -268,11 +259,11 @@ input[type="text"].search-form__textfield:active {
 
 .content__list-container {
   position: relative;
-  margin-block-start: 23px;
+  margin-block-start: 21px;
   padding: 1px 3px;
   overflow-y: auto;
   block-size: 100%;
-  max-block-size: calc(100% - 234px);
+  max-block-size: 298px;
 }
 
 .content__list-container:has(.preloader) {
@@ -321,6 +312,7 @@ input[type="text"].search-form__textfield:active {
 }
 
 .content__video-card-description-container {
+  padding-block-start: 2px;
   min-inline-size: 0;
 }
 
@@ -340,7 +332,7 @@ input[type="text"].search-form__textfield:active {
 }
 
 .content__video-card-description {
-  margin-block-start: 6px;
+  margin-block-start: 5px;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
